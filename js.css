@@ -1,4 +1,4 @@
-/* Default background is spring; JavaScript will override it. */
+/* Default body background (will be overridden by jQuery based on season) */
 body {
 	background-image: url(springbg.jpg);
 	background-size: cover;
@@ -90,7 +90,7 @@ body {
 	clear: left;
   }
   
-  /* Seasonal classes for #specials (added via jQuery) */
+  /* Seasonal classes applied to #specials via jQuery */
   .Fall {
 	background-color: #ffe5cc;
 	text-align: center;
