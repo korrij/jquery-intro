@@ -1,28 +1,51 @@
-// 1. Arrays for months, tips, and specials
+// 1. Arrays for months, tips, and specials (all 0-based)
 var months = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
+    // 0
+    'January', 
+    // 1
+    'February', 
+    // 2
+    'March', 
+    // 3
+    'April', 
+    // 4
+    'May', 
+    // 5
+    'June',
+    // 6
+    'July', 
+    // 7
+    'August', 
+    // 8
+    'September', 
+    // 9
+    'October', 
+    // 10
+    'November', 
+    // 11
+    'December'
   ];
   
-  // Index 0 = Winter, 1 = Spring, 2 = Summer, 3 = Fall
+  // tips[0] = Winter, tips[1] = Spring, tips[2] = Summer, tips[3] = Fall
   var tips = [
-    // Winter
+    // 0 = Winter
     "<p>Those of us who live through our gardens know how bittersweet it can be... " +
     "Hellebores are the perfect winter garden companion...</p>",
     
-    // Spring
+    // 1 = Spring
     "<p>Spring is a time of renewal for both the gardener and the garden. " +
-    "Suggestions for this month: Transplants of tomatoes should be planted by March 15th...</p>",
+    "Suggestions: Transplants of tomatoes by mid-March...</p>",
     
-    // Summer
+    // 2 = Summer
     "<p><strong>Summer is the TIME</strong><ul><li>Select rose bushes...</li>" +
     "<li>Transplants of peppers, eggplant...</li></ul></p>",
     
-    // Fall
+    // 3 = Fall
     "<p>Fall is the best time to plant in north Texas. Milder temperatures... " +
     "With the changing season comes the changing of our color plantings...</p>"
   ];
   
+  // specials[0] = January, specials[1] = February, ..., specials[11] = December
   var specials = [
     // 0 = January
     "<p>Don't forget our feathered friends!</p><p>All bird feeders and birdseed are 50% off this January.</p>",
@@ -52,9 +75,9 @@ var months = [
   
   $(document).ready(function() {
     // 2. Get the current date (or use a test date if needed)
-    // let today = new Date(2025, 11, 1); // Uncomment for testing December
-    let today = new Date();
-    let monthNum = today.getMonth(); // 0-based index: 0 = January, 11 = December
+    // let today = new Date(2025, 10, 5); // For testing November (10)
+    let today = new Date();  
+    let monthNum = today.getMonth();  // 0-based: 0=Jan, 11=Dec
     let year = today.getFullYear();
   
     // 3. Update the #month text with the current month name
@@ -66,30 +89,33 @@ var months = [
   
     // 5. Determine the season based on the current month
     let seasonIndex, seasonName, seasonColor, seasonBG;
-  
+    
+    // Winter: December (11), January (0), February (1)
     if (monthNum === 11 || monthNum === 0 || monthNum === 1) {
-      // Winter: December, January, February
-      seasonIndex = 0;
+      seasonIndex = 0; // tips[0] = Winter
       seasonName = "Winter";
-      seasonColor = "#3333ff"; // Example text color for winter
+      seasonColor = "#3333ff";
       seasonBG = "winterbg.jpg";
-    } else if (monthNum >= 2 && monthNum <= 4) {
-      // Spring: March, April, May
-      seasonIndex = 1;
+    }
+    // Spring: March (2), April (3), May (4)
+    else if (monthNum >= 2 && monthNum <= 4) {
+      seasonIndex = 1; // tips[1] = Spring
       seasonName = "Spring";
-      seasonColor = "#008000"; // Example text color for spring
+      seasonColor = "#008000";
       seasonBG = "springbg.jpg";
-    } else if (monthNum >= 5 && monthNum <= 7) {
-      // Summer: June, July, August
-      seasonIndex = 2;
+    }
+    // Summer: June (5), July (6), August (7)
+    else if (monthNum >= 5 && monthNum <= 7) {
+      seasonIndex = 2; // tips[2] = Summer
       seasonName = "Summer";
-      seasonColor = "#FF6600"; // Example text color for summer
+      seasonColor = "#FF6600";
       seasonBG = "summerbg.jpg";
-    } else {
-      // Fall: September, October, November
-      seasonIndex = 3;
+    }
+    // Fall: September (8), October (9), November (10)
+    else {
+      seasonIndex = 3; // tips[3] = Fall
       seasonName = "Fall";
-      seasonColor = "#990000"; // Example text color for fall
+      seasonColor = "#990000";
       seasonBG = "fallbg.jpg";
     }
   
@@ -112,6 +138,6 @@ var months = [
       $("#slogan h3:contains('Happy Holidays!')").remove();
     }
   
-    // 11. Update the footer copyright with the current year
+    // 11. Update the footer year
     $("#copy").text("© " + year + " by Patti Burks");
   });
