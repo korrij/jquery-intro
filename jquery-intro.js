@@ -76,7 +76,7 @@ var months = [
   $(document).ready(function() {
     // 2. Get the current date (or use a test date if needed)
     // let today = new Date(2025, 10, 5); // For testing November (10)
-    let today = new Date();  
+    let today = new Date(); // For testing December (11)
     let monthNum = today.getMonth();  // 0-based: 0=Jan, 11=Dec
     let year = today.getFullYear();
   
